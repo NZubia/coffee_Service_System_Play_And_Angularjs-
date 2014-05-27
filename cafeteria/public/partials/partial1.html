@@ -1,0 +1,99 @@
+<!-- Optional-->
+  <div calss="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div id="carousel-example-generic" class="carousel slide">
+          
+          <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                  <img class="img-rounded" src="public/images/slide1.jpg" alt="">
+              </div>
+              <div class="item">
+                  <img class="img-rounded" src="public/images/slide2.jpg" alt="">
+              </div>
+              <div class="item">
+                  <img class="img-rounded" src="public/images/slide3.jpg" alt="">
+              </div>
+            </div>
+
+
+            <!-- Controls--> 
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>    
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  <!-- Optional-->
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      &nbsp;
+    </div>
+  </div>
+
+<div class="row">
+	<div class="col-md-3">
+    <div class="well">
+      <div class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+          <i class="icon-shopping-cart"></i>
+              {{entradas.length}}  Entradas - $ {{total}}
+          <b class="caret"></b></a>
+        </a>
+        <div class="dropdown-menu well" role="menu" aria-labelledby="dLabel">
+          <div ng-repeat="entrada in entradas">
+            <a href="#/view2/{{entrada.alimento.id}}">{{entrada.alimento.nombre}} 
+              <br>
+                {{entrada.cantidad}} x $ {{entrada.alimento.price}}
+              <br>
+              <span class="pull-right"> Importe $ {{entrada.alimento.price* entrada.cantidad}} 
+              </span>
+            </a>
+            <hr>
+          </div>  
+            <a href="#/view3" class="btn btn-primary">Total {{total}}</a>
+        </div>
+      </div>
+    </div>
+
+		<div class="well">
+			<ul class="nav nav-list">
+						<li class="nav-header">MENÚ</li>
+            <li class="active"><a href="#/view1/Platillos">Todos los Platillos</a></li>
+						<li><a href="#/view1/PlatoFuerte">Platos Fuertes</a></li>
+						<li><a href="#/view1/Entrada">Entradas</a></li>
+						<li><a href="#/view1/Postre">Postres</a></li>
+						<li><a href="#/view1/Bebida">Bebidas</a></li>
+					</ul>
+		</div>
+	</div>
+
+	<div class="col-md-9">
+		<ul class="thumbnails">
+			<li class="col-md-4" ng-repeat="prod in alimentos">
+				<div class="thumbnail">
+					<img src='{{prod.imagen}}' alt="">
+					<div class="caption">
+						<h4>{{prod.nombre}}</h4>
+						<p>Precio: $ {{prod.price}}</p>
+						<a class="btn btn-primary" href="#/view2/{{prod.id}}"><i class="fa fa-search">&nbsp;</i>Ver</a>
+						<a  ng-show = "usuario.isLogged" class="btn btn-success" ng-click = "addToPedido(prod)"><i class="fa fa-plus">&nbsp;</i>Agregar</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

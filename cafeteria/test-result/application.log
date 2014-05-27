@@ -1,0 +1,5 @@
+20 may 2014 19:45:40,240 INFO  ~ Starting C:\play-1.2.4\cafeteria
+20 may 2014 19:45:41,215 WARN  ~ You're running Play! in DEV mode
+20 may 2014 19:45:41,361 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+20 may 2014 19:45:46,054 INFO  ~ Connected to jdbc:mysql://localhost/cafeterialanueva?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+20 may 2014 19:45:52,354 INFO  ~ Application 'cafeteria' is now started !

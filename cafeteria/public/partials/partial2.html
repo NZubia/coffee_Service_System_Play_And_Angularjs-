@@ -1,0 +1,57 @@
+
+<div class="row">
+	<div class="col-md-3">
+		<div class="well">
+	      <div class="dropdown">
+	        <a class="dropdown-toggle" data-toggle="dropdown">
+	          <i class="icon-shopping-cart"></i>
+	              {{entradas.length}}  Entradas - $ {{total}}
+	          <b class="caret"></b></a>
+	        </a>
+	        <div class="dropdown-menu well" role="menu" aria-labelledby="dLabel">
+	          <div ng-repeat="entrada in entradas">
+	            <a href="#/view2/{{entrada.alimento.id}}">{{entrada.alimento.nombre}} 
+	              <br>
+	                {{entrada.cantidad}} x $ {{entrada.alimento.price}}
+	              <br>
+	              <span class="pull-right"> Importe $ {{entrada.alimento.price* entrada.cantidad}} 
+	              </span>
+	            </a>
+	            <hr>
+	          </div>  
+	            <a href="#/view3" class="btn btn-primary">Total {{total}}</a>
+	        </div>
+	      </div>
+	    </div>
+
+		<div class="well">
+			<ul class="nav nav-list">
+				<li class="nav-header">MENÚ</li>
+	            <li class="active"><a href="#/view1/Platillos">Todos los Platillos</a></li>
+				<li><a href="#/view1/PlatoFuerte">Platos Fuertes</a></li>
+				<li><a href="#/view1/Entrada">Entradas</a></li>
+				<li><a href="#/view1/Postre">Postres</a></li>
+				<li><a href="#/view1/Bebida">Bebidas</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-md-9 well" ng-repeat="prod in alimento">
+		<div class="row">
+			<div class="col-md-6">
+				<img src= {{prod.imagen}} >
+			</div>
+
+			<div class="col-md-6">
+				<h3 class="text-center">{{prod.nombre}}</h3>
+				<span>&nbsp;</span>
+				<h4>Descripción</h4>
+				<p>{{prod.descripcion}}</p>
+				
+				<h4 class="text-right">Precio: ${{prod.price}}</h4>
+				<a ng-show = "usuario.isLogged" class="btn btn-success pull-right" ng-click = "addToPedido(prod)"><i class="fa fa-plus">&nbsp;</i>Agregar </a>
+			</div>
+			
+		</div>
+	</div>
+</div>

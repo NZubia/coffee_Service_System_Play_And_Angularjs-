@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="myRestaurant">
+<head>
+  <meta charset="utf-8">
+  <title>Cafe La Nueva</title>
+
+  <!--Include Css-->
+  
+  <link rel="stylesheet" href="public/stylesheets/bootstrap.min.css"/>
+  <link rel="stylesheet" href="public/stylesheets/bootstrap-theme.min.css"/>
+  <link rel="stylesheet" href="public/stylesheets/main.css"/>
+  <!--Include FontAwesome-->
+  <link rel="stylesheet" href="public/font-awesome/css/font-awesome.min.css" />
+
+</head>
+<body ng-controller = "index">
+  <div class="container">
+    
+    <div class="row">
+      <div calss="col-md-12">&nbsp;</div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-default" role = "navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a href="#" class="navbar-brand active"><i class="fa fa-coffee fa-fw"></i>&nbsp; LA NUEVA</a>
+              
+              <ul class="nav navbar-nav">
+                <li><a href="#/view3"><i class="fa fa-shopping-cart">&nbsp;</i>Realizar Pedido</a></li>
+                <li ng-hide = "usuario.isLogged"><a href= "#" data-toggle="modal" data-target="#userModal"><i class="fa fa-user">&nbsp;</i>Ingresar</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href= "" id="nombreUsuario" ng-show = "usuario.isLogged">Bienvendo {{usuario.nombre}} !!!</a></li>
+              </ul>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div ng-view></div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Log in</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="UserName">Correo Usuario:</label>
+            <input ng-model = "usuario.correo" type="text" class="form-control" id="userName" placeholder="Correo Usuario">
+          </div>
+
+          <div class="form-group">
+            <label for="UserAddress">Contraseña:</label>
+            <input ng-model = "usuario.pass" type="password" class="form-control" id="password" placeholder="Contraseña">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="login" data-dismiss="modal" ng-click = "login(usuario)">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script src="http://code.angularjs.org/1.2.0-rc.2/angular-route.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
+  <script src="public/javascripts/app.js"></script>
+  <script src="public/javascripts/services.js"></script>
+  <script src="public/javascripts/controllers.js"></script>
+  <script src="public/javascripts/filters.js"></script>
+  <script src="public/javascripts/directives.js"></script>
+  <script src="public/javascripts/jquery-2.1.0.min.js"></script>
+  <script src="public/javascripts/bootstrap.min.js"></script>
+
+
+</body>
+</html>
